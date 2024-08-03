@@ -18,7 +18,7 @@ namespace EquipmentApi.Services.DataServices
         public async Task<EquipmentRoot> GetEquipmentDataAsync() => Read(await File.ReadAllTextAsync(_xmlPath));
         public EquipmentRoot GetEquipmentData() => Read(File.ReadAllText(_xmlPath));        
         protected EquipmentRoot Read(string xmlData)
-        {
+        {           
             var serializer = new XmlSerializer(typeof(NodeXmlList));
             using (var reader = new StringReader(xmlData))
             {

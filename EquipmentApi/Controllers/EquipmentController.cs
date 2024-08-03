@@ -19,8 +19,8 @@ namespace EquipmentApi.Controllers
         public async Task<ActionResult<string>> GetEquipmentIdByPath(string path)
         {
             var nodes = await _equipmentData.GetEquipmentDataAsync();
-            var pathQueue = new Queue<string>(path.Split('/').ToList());           
-            var id = nodes.GetNodeIdByPath(pathQueue);
+            var pathSplited = path.Split('/');           
+            var id = nodes.GetNodeIdByPath(pathSplited);
             if(id != -1)
                 return Ok(new { Id = id });
             return BadRequest();
