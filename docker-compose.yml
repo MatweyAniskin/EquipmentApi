@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  equipmentapi:
+    image: ${DOCKER_REGISTRY-}equipmentapi
+    build:
+      context: .
+      dockerfile: EquipmentApi/Dockerfile
+    ports:
+      - "5000:5000"
